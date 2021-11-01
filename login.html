@@ -1,0 +1,49 @@
+
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <script>
+        //储存数据
+        function setInfo(name,number,collage) {
+            var storage = window.localStorage;
+            storage.setItem('name', name);
+            storage.setItem('number', number);
+            storage.setItem('collage', collage);
+        }
+
+        function submit1() {
+            var str1 = document.getElementById("xh").value.trim();
+            var str2 = document.getElementById("xm").value.trim();
+            var str3 = document.getElementById("xy").value.trim();
+            setInfo(str1,str2,str3);
+            document.myform.action="out.html";
+        }
+        function submit2() {
+            var str1 = document.getElementById("xh").value.trim();
+            var str2 = document.getElementById("xm").value.trim();
+            var str3 = document.getElementById("xy").value.trim();
+            setInfo(str1,str2,str3);
+            document.myform.action="in.html";
+        }
+        //显示数据
+        // function show() {
+        //     var storage = window.localStorage;
+        //     var str = "your name is " + storage.getItem('name');
+        //     document.getElementById("text").value = str;
+        // }
+    </script>
+</head>
+<body>
+<form name="myform">
+    <label>学号</label><input type="text" name="number" id="xh" />
+    <br/>
+    <label>姓名</label><input type="text" name="name" id="xm" />
+    <br/>
+    <label>学院</label><input type="text" name="collage" id="xy" />
+    <br/>
+    <input type="submit" name="button" value="出校" onclick="submit1()" />
+    <input type="submit" name="button" value="进校" onclick="submit2()" />
+</form>
+</body>
+</html>
